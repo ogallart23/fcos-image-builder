@@ -1,0 +1,35 @@
+# by default, ignore everything
+*
+
+# only add what we actually need; this provides more accurate layer caching and
+# makes the COPY faster
+!/*.repo
+!/build-args.conf
+!/build-rootfs
+!/buildroot-prep
+!/image-base.yaml
+!/image-default.yaml
+!/image.yaml
+!/live/
+!/manifest-lock.*
+!/manifests/
+!/manifest.yaml
+!/overlay.d/
+!/overrides/
+!/platforms.yaml
+
+# Useful for testing development versions.
+!/bootc-base-imagectl
+!/rpm-ostree
+
+# extras by Oriol
+!/zincati/90-disable-auto-updates.toml
+!/aws/ecr-credential-provider
+!/aws/credentials
+!/kube/
+!/repos/
+!/ign-converter/
+!/dracut/
+!/wireguard/
+!/backup/
+!/rustfs/

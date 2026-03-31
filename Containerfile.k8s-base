@@ -1,0 +1,16 @@
+FROM quay.io/fedora/fedora-coreos:stable
+
+COPY kube/k8s.conf /etc/sysctl.d/k8s.conf
+
+COPY repos/cri-o.repo /etc/yum.repos.d/cri-o.repo
+COPY repos/kubernetes.repo /etc/yum.repos.d/kubernetes.repo
+
+RUN set -eux; \
+    rpm-ostree install \
+        htop \
+        cri-o \
+        kubelet \
+        kubeadm \
+        kubectl; \
+    rpm-ostree cleanup -m; \
+    ostree container commit;
