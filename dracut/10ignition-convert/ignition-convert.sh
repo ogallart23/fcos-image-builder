@@ -6,7 +6,6 @@ exec >>"$LOG" 2>&1
 
 echo "[convert] starting"
 
-# trobar vmtoolsd
 VMTOOLSD=/usr/bin/vmtoolsd
 
 if [ ! -x "$VMTOOLSD" ]; then
@@ -18,7 +17,6 @@ echo "vmtoolsd found at $VMTOOLSD" > /dev/kmsg
 
 echo "[convert] using $VMTOOLSD"
 
-# obtenir ignition v2
 DATA="$("$VMTOOLSD" --cmd "info-get guestinfo.ignition.config.data" || true)"
 
 if [ -z "$DATA" ] || [ "$DATA" = "{}" ]; then
@@ -31,7 +29,6 @@ if ! echo "$DATA" | base64 -d > /run/ignitionv2.json 2>/dev/null; then
     exit 0
 fi
 
-# convertir a v3
 if ! /usr/bin/ign-converter \
         --input /run/ignitionv2.json \
         --output /run/ignition.json; then
