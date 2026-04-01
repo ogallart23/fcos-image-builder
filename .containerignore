@@ -23,13 +23,7 @@
 !/rpm-ostree
 
 # extras by Oriol
-!/zincati/90-disable-auto-updates.toml
-!/aws/ecr-credential-provider
-!/aws/credentials
 !/kube/
 !/repos/
 !/ign-converter/
 !/dracut/
-!/wireguard/
-!/backup/
-!/rustfs/

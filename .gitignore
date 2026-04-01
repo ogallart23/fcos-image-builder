@@ -1,5 +1,5 @@
 *.ova
 *.iso
 *.pub
-fcos-builder/build
-fcos-builder/ign-converter/vendor
+build
+ign-converter/vendor

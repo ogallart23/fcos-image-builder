@@ -1,0 +1,11 @@
+[Unit]
+Description=Ignition convert (initramfs)
+DefaultDependencies=no
+Before=cryptsetup.target
+After=systemd-udev-settle.service
+Requires=systemd-udev-settle.service
+
+[Service]
+Type=oneshot
+ExecCondition=/bin/sh -c '[ -f /run/ignition.json ] || exit 0'
+ExecStart=/usr/libexec/ignition-convert.sh
